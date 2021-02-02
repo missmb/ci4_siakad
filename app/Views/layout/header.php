@@ -24,8 +24,7 @@
                                 <li><a href="<?= base_url('room'); ?>" class="dropdown-item">Room</a></li>
                                 <li><a href="<?= base_url('faculty'); ?>" class="dropdown-item">Faculty</a></li>
                                 <li><a href="<?= base_url('prodi'); ?>" class="dropdown-item">Program Study</a></li>
-                                <li><a href="#" class="dropdown-item">Dosen</a></li>
-                                <li><a href="#" class="dropdown-item">Mahasiswa</a></li>
+                                <li><a href="<?= base_url('ay'); ?>" class="dropdown-item">Academic Year</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

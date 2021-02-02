@@ -8,7 +8,7 @@
             <div class="card-header">
                 <h3 class="card-title">Data <?= $title; ?></h3>
                 <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#add-building"><i class="fas fa-plus"></i> Add
+                    <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#add-ay"><i class="fas fa-plus"></i> Add
                     </button>
                 </div>
             </div>
@@ -23,19 +23,21 @@
                     <thead>
                         <tr>
                             <th width="20px">No</th>
-                            <th>building</th>
+                            <th>Academic Year</th>
+                            <th>Semester</th>
                             <th width="100px">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($building as $key => $bu) { ?>
+                        foreach ($ay as $key => $a) { ?>
                             <tr>
                                 <td class="text-center"><?= $i++; ?></td>
-                                <td><?= $bu['building'] ?></td>
+                                <td><?= $a['ay'] ?></td>
+                                <td><?= $a['semester'] ?></td>
                                 <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" data-target="#edit-building-<?= $bu['id_building'] ?>" data-toggle="modal"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-danger btn-sm"data-target="#delete-building-<?= $bu['id_building'] ?>" data-toggle="modal"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-target="#edit-ay-<?= $a['id_ay'] ?>" data-toggle="modal"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"data-target="#delete-ay-<?= $a['id_ay'] ?>" data-toggle="modal"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -46,21 +48,26 @@
     </div>
 </div>
 
-<div class="modal fade" id="add-building">
+
+<div class="modal fade" id="add-ay">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Add Building</h4>
+                <h4 class="modal-title">Add Academic Year</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- <p>One fine body&hellip;</p> -->
-                <?= form_open('building/add'); ?>
+                <?= form_open('ay/add'); ?>
                 <div class="form-group">
-                    <label for="">building</label>
-                    <input type="text" name="building" id="building" class="form-control" placeholder="Building" required>
+                    <label for="">Academic Year</label>
+                    <input type="text" name="ay" id="ay" class="form-control" placeholder="ay" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Semeste</label>
+                    <input type="text" name="semester" id="semester" class="form-control" placeholder="Semester" required>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -72,22 +79,26 @@
     </div>
 </div>
 
-<?php foreach ($building as $key => $bu) { ?>
-<div class="modal fade" id="edit-building-<?= $bu['id_building'] ?>">
+<?php foreach ($ay as $key => $a) { ?>
+<div class="modal fade" id="edit-ay-<?= $a['id_ay'] ?>">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Edit Building</h4>
+                <h4 class="modal-title">Edit ay</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- <p>One fine body&hellip;</p> -->
-                <?= form_open('building/edit/' . $bu['id_building']); ?>
+                <?= form_open('ay/edit/' . $a['id_ay']); ?>
                 <div class="form-group">
-                    <label for="">building</label>
-                    <input type="text" name="building" id="building" class="form-control" value="<?= $bu['building'] ?>" required>
+                    <label for="">Academic Year</label>
+                    <input type="text" name="ay" id="ay" class="form-control" value="<?= $a['ay'] ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Semester</label>
+                    <input type="text" name="semester" id="semester" class="form-control" value="<?= $a['semester'] ?>" required>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -101,22 +112,22 @@
 <?php } ?>
 
 
-<?php foreach ($building as $key => $bu) { ?>
-<div class="modal fade" id="delete-building-<?= $bu['id_building'] ?>">
+<?php foreach ($ay as $key => $a) { ?>
+<div class="modal fade" id="delete-ay-<?= $a['id_ay'] ?>">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Delete Building</h4>
+                <h4 class="modal-title">Delete Academic Year</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to Delete <b><?= $bu['building'] ?></b> ? 
+                Are you sure you want to Delete <b><?= $a['ay'] ?></b> ? 
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <a href="<?= base_url('building/delete/' . $bu['id_building']); ?>" class="btn btn-success">Delete</a>
+                <a href="<?= base_url('ay/delete/' . $a['id_ay']); ?>" class="btn btn-success">Delete</a>
             </div> 
         </div>
     </div>

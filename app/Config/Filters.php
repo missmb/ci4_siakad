@@ -37,6 +37,7 @@ class Filters extends BaseConfig
 					'building', 'building/*',
 					'room', 'room/*',
 					'prodi', 'prodi/*',
+					'ay', 'ay/*',
 					'/'
 				]
 			],
