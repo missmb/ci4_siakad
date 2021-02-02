@@ -35,6 +35,7 @@ class Filters extends BaseConfig
 					'admin', 'admin/*',
 					'faculty', 'faculty/*',
 					'building', 'building/*',
+					'room', 'room/*',
 					'/'
 				]
 			],

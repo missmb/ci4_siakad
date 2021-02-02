@@ -1,4 +1,8 @@
-<div class="row">
+<div class="container">
+<div class="content">
+        <h2 class="m-0 text-dark mt-3"> <?= $title; ?> </h2> <br/>
+</div>
+
     <div class="col-sm-12">
         <div class="card card-success">
             <div class="card-header">
@@ -42,7 +46,6 @@
     </div>
 </div>
 
-
 <div class="modal fade" id="add-building">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -57,7 +60,7 @@
                 <?= form_open('building/add'); ?>
                 <div class="form-group">
                     <label for="">building</label>
-                    <input type="text" name="building" id="building" class="form-control" placeholder="building" required>
+                    <input type="text" name="building" id="building" class="form-control" placeholder="Building" required>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">

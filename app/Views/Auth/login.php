@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="login-box">
+<div class="container mt-3">
+  <div class="login-box m-auto">
     <div class="login-logo">
       <a href="<?= base_url(); ?>"><b>Login</b> SIAKAD</a>
     </div>
