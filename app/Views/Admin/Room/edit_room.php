@@ -7,7 +7,7 @@
         <div class="col-sm-8 m-auto">
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title"><?= $title; ?></h3>
+                    <h3 class="card-title">Data <?= $title; ?></h3>
                     <div class="card-tools">
                         <a href="<?= base_url('room'); ?>" class="btn btn-tool"><i class="fas fa-reply"></i> Back
                         </a>
@@ -23,11 +23,11 @@
                                 <?php } ?>
                         </div>
                     <?php } ?>
-                    <?= form_open('room/update/' . $room['id_room']); ?>
+                    <?= form_open('room/insert'); ?>
                     <div class="form-group">
                         <label>Building</label>
                         <select class="form-control" name="id_building">
-                            <option value="<?= $room['id_room'] ?>"><?= $room['building'] ?></option>
+                            <option value="">-- Choose Building --</option>
                             <?php foreach ($building as $key => $bu) { ?>
                                 <option value="<?= $bu['id_building'] ?>"><?= $bu['building'] ?></option>
                             <?php } ?>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label>Room</label>
-                        <input class="form-control" value="<?= $room['room'] ?>" type="text" name="room" placeholder="Room Name" required>
+                        <input class="form-control" type="text" name="room" placeholder="Room Name" required>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <a href="<?= base_url('room'); ?>" class="btn btn-danger">Cancel</a>

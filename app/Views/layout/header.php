@@ -23,7 +23,7 @@
                                 <li><a href="<?= base_url('building'); ?>" class="dropdown-item">Building</a></li>
                                 <li><a href="<?= base_url('room'); ?>" class="dropdown-item">Room</a></li>
                                 <li><a href="<?= base_url('faculty'); ?>" class="dropdown-item">Faculty</a></li>
-                                <li><a href="#" class="dropdown-item">Program Study</a></li>
+                                <li><a href="<?= base_url('prodi'); ?>" class="dropdown-item">Program Study</a></li>
                                 <li><a href="#" class="dropdown-item">Dosen</a></li>
                                 <li><a href="#" class="dropdown-item">Mahasiswa</a></li>
                             </ul>
