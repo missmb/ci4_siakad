@@ -34,6 +34,7 @@ class Filters extends BaseConfig
 					'home', 'home/*',
 					'admin', 'admin/*',
 					'faculty', 'faculty/*',
+					'building', 'building/*',
 					'/'
 				]
 			],
