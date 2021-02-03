@@ -40,7 +40,7 @@ class Filters extends BaseConfig
 					'ay', 'ay/*',
 					'courses', 'courses/*',
 					'student', 'student/*',
-					'lecturer', 'lecturer/*',
+					'lecture', 'lecture/*',
 					'user', 'user/*',
 					'/'
 				]

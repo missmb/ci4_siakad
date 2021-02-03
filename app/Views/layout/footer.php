@@ -30,11 +30,25 @@
     });
 </script>
 <script>
-window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(500, function() {
-        $($this).remove();
-    });
-}, 3000)
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $($this).remove();
+        });
+    }, 3000)
+</script>
+<script>
+    function previewCover(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#cover_load').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $('#preview_cover').change(function() {
+        previewCover(this);
+    })
 </script>
 </body>
 

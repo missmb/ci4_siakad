@@ -27,7 +27,7 @@
                                 <li><a href="<?= base_url('ay'); ?>" class="dropdown-item">Academic Year</a></li>
                                 <li><a href="<?= base_url('courses'); ?>" class="dropdown-item">Courses</a></li>
                                 <li><a href="<?= base_url('student'); ?>" class="dropdown-item">Student</a></li>
-                                <li><a href="<?= base_url('lecturer'); ?>" class="dropdown-item">Lecturer</a></li>
+                                <li><a href="<?= base_url('lecture'); ?>" class="dropdown-item">Lecture</a></li>
                                 <li><a href="<?= base_url('user'); ?>" class="dropdown-item">User</a></li>
                             </ul>
                         </li>
