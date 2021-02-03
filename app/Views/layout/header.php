@@ -25,6 +25,10 @@
                                 <li><a href="<?= base_url('faculty'); ?>" class="dropdown-item">Faculty</a></li>
                                 <li><a href="<?= base_url('prodi'); ?>" class="dropdown-item">Program Study</a></li>
                                 <li><a href="<?= base_url('ay'); ?>" class="dropdown-item">Academic Year</a></li>
+                                <li><a href="<?= base_url('courses'); ?>" class="dropdown-item">Courses</a></li>
+                                <li><a href="<?= base_url('student'); ?>" class="dropdown-item">Student</a></li>
+                                <li><a href="<?= base_url('lecturer'); ?>" class="dropdown-item">Lecturer</a></li>
+                                <li><a href="<?= base_url('user'); ?>" class="dropdown-item">User</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

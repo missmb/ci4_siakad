@@ -38,6 +38,10 @@ class Filters extends BaseConfig
 					'room', 'room/*',
 					'prodi', 'prodi/*',
 					'ay', 'ay/*',
+					'courses', 'courses/*',
+					'student', 'student/*',
+					'lecturer', 'lecturer/*',
+					'user', 'user/*',
 					'/'
 				]
 			],
