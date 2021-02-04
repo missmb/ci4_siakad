@@ -83,7 +83,6 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- <p>One fine body&hellip;</p> -->
                 <?= form_open('building/edit/' . $bu['id_building']); ?>
                 <div class="form-group">
                     <label for="">building</label>
