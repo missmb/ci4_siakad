@@ -2,22 +2,24 @@
 
 namespace App\Controllers;
 
-use App\Models\LectureModel;
+use App\Models\ProdiModel;
+use App\Models\StudentModel;
 
-class Lecture extends BaseController
+class student extends BaseController
 {
 	public function __construct()
 	{
 		helper('form');
-		$this->LectureModel = new LectureModel();
+		$this->ProdiModel = new ProdiModel();
+		$this->StudentModel = new StudentModel();
 	}
 
 	public function index()
 	{
 		$data = [
-			'title' => 'Lecture',
-			'lecture' => $this->LectureModel->data(),
-			'content' => 'Admin/Lecture/index'
+			'title' => 'Student',
+			'student' => $this->StudentModel->data(),
+			'content' => 'Admin/student/index'
 		];
 		return view('layout/wrapper', $data);
 	}
@@ -25,9 +27,9 @@ class Lecture extends BaseController
 	public function add()
 	{
 		$data = [
-			'title' => 'Add Lecture',
-			'lecture' => $this->LectureModel->data(),
-			'content' => 'Admin/Lecture/add_lecture'
+			'title' => 'Add Student',
+			'prodi' => $this->ProdiModel->data(),
+			'content' => 'Admin/student/add_student'
 		];
 		return view('layout/wrapper', $data);
 	}
@@ -35,22 +37,22 @@ class Lecture extends BaseController
 	public function insert()
 	{
 		if ($this->validate([
-			'code_lecture' => [
-				'label' => 'Lecture Code',
+			'nim' => [
+				'label' => 'NIM',
 				'rules' => 'required',
 				'errors' => [
 					'required' => '{field} must fill!'
 				]
 			],
-			'nidn' => [
-				'label' => 'NIDN',
+			'student_name' => [
+				'label' => 'student Name',
 				'rules' => 'required',
 				'errors' => [
 					'required' => '{field} must fill!'
 				]
 			],
-			'lecture_name' => [
-				'label' => 'Lecture Name',
+			'id_prodi' => [
+				'label' => 'ID Prodi',
 				'rules' => 'required',
 				'errors' => [
 					'required' => '{field} must fill!'
@@ -76,28 +78,28 @@ class Lecture extends BaseController
 			$cover = $this->request->getFile('cover');
 			$file_name = $cover->getRandomName();
 			$data = [
-				'code_lecture' => $this->request->getPost('code_lecture'),
-				'nidn' => $this->request->getPost('nidn'),
-				'lecture_name' => $this->request->getPost('lecture_name'),
+				'nim' => $this->request->getPost('nim'),
+				'student_name' => $this->request->getPost('student_name'),
+				'id_prodi' => $this->request->getPost('id_prodi'),
 				'password' => $this->request->getPost('password'),
 				'cover' => $file_name,
 			];
-			$cover->move('img/lecture', $file_name);
-			$this->LectureModel->add($data);
+			$cover->move('img/student', $file_name);
+			$this->StudentModel->add($data);
 			session()->setFlashdata('success', 'Success Add Data');
-			return redirect()->to(base_url('lecture'));
+			return redirect()->to(base_url('student'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-			return redirect()->to(base_url('lecture/add'));
+			return redirect()->to(base_url('student/add'));
 		}
 	}
 
-	public function edit($id)
-	{
+	public function edit($id){
 		$data = [
-			'title' => 'Edit Lecture',
-			'lecture' => $this->LectureModel->detail($id),
-			'content' => 'Admin/Lecture/edit_lecture'
+			'title' => 'Edit Program Study',
+			'prodi' => $this->ProdiModel->data(),
+			'student' => $this->StudentModel->detail($id),
+			'content' => 'Admin/Student/edit_student'
 		];
 		return view('layout/wrapper', $data);
 	}
@@ -105,22 +107,22 @@ class Lecture extends BaseController
 	public function update($id)
 	{
 		if ($this->validate([
-			'code_lecture' => [
-				'label' => 'Lecture Code',
+			'nim' => [
+				'label' => 'NIM',
 				'rules' => 'required',
 				'errors' => [
 					'required' => '{field} must fill!'
 				]
 			],
-			'nidn' => [
-				'label' => 'NIDN',
+			'student_name' => [
+				'label' => 'student Name',
 				'rules' => 'required',
 				'errors' => [
 					'required' => '{field} must fill!'
 				]
 			],
-			'lecture_name' => [
-				'label' => 'Lecture Name',
+			'id_prodi' => [
+				'label' => 'ID Prodi',
 				'rules' => 'required',
 				'errors' => [
 					'required' => '{field} must fill!'
@@ -146,50 +148,50 @@ class Lecture extends BaseController
 
 			if ($cover->getError() == 4) {
 				$data = [
-					'id_lecture' => $id,
-					'code_lecture' => $this->request->getPost('code_lecture'),
-					'nidn' => $this->request->getPost('nidn'),
-					'lecture_name' => $this->request->getPost('lecture_name'),
+					'id_student' => $id,
+					'nim' => $this->request->getPost('nim'),
+					'student_name' => $this->request->getPost('student_name'),
+					'id_prodi' => $this->request->getPost('id_prodi'),
 					'password' => $this->request->getPost('password'),
 				];
-				$this->LectureModel->edit($data);
+				$this->StudentModel->edit($data);
 			} else {
-				$lecture = $this->LectureModel->detail($id);
-				if ($lecture['cover'] != "") {
-					unlink('img/lecture/' . $lecture['cover']);
+				$student = $this->StudentModel->detail($id);
+				if ($student['cover'] != "") {
+					unlink('img/student/' . $student['cover']);
 				}
 				$file_name = $cover->getRandomName();
 				$data = [
-					'id_lecture' => $id,
-					'code_lecture' => $this->request->getPost('code_lecture'),
-					'nidn' => $this->request->getPost('nidn'),
-					'lecture_name' => $this->request->getPost('lecture_name'),
+					'id_student' => $id,
+					'nim' => $this->request->getPost('nim'),
+					'student_name' => $this->request->getPost('student_name'),
+					'id_prodi' => $this->request->getPost('id_prodi'),
 					'password' => $this->request->getPost('password'),
 					'cover' => $file_name,
 				];
-				$cover->move('img/lecture', $file_name);
-				$this->LectureModel->edit($data);
+				$cover->move('img/student', $file_name);
+				$this->StudentModel->edit($data);
 			}
 			session()->setFlashdata('success', 'Success Edit Data');
-			return redirect()->to(base_url('lecture'));
+			return redirect()->to(base_url('student'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-			return redirect()->to(base_url('lecture/edit/' . $id));
+			return redirect()->to(base_url('student/edit/' . $id));
 		}
 	}
 
 	public function delete($id)
 	{
-		$lecture = $this->LectureModel->detail($id);
+		$student = $this->StudentModel->detail($id);
 
-		if ($lecture['cover'] != "") {
-			unlink('img/lecture/' . $lecture['cover']);
+		if ($student['cover'] != "") {
+			unlink('img/student/' . $student['cover']);
 		}
 		$data = [
-			'id_lecture' => $id
+			'id_student' => $id
 		];
-		$this->LectureModel->delete_lecture($data);
+		$this->StudentModel->delete_student($data);
 		session()->setFlashdata('success', 'Success Delete Data');
-		return redirect()->to(base_url('lecture'));
+		return redirect()->to(base_url('student'));
 	}
 }
