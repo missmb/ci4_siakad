@@ -57,7 +57,7 @@
                     <div class="form-group">
                         <label>Chief of Program Study</label>
                         <select class="form-control" name="chief_prodi">
-                            <option value="<?= $f['lecture_name'] ?>"><?= $f['lecture_name'] ?></option>
+                            <option value="<?= $prodi['chieprodi_prodi'] ?>"><?= $prodi['chief_prodi'] ?></option>
                         <?php $i = 1; foreach ($lecture as $key => $v) { ?>
                            <option value="<?= $v['lecture_name'] ?>"><?= $v['lecture_name'] ?></option>
                         <?php } ?>

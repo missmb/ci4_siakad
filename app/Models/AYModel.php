@@ -28,4 +28,10 @@ class AYModel extends Model{
     public function resetStatus(){
         $this->db->table('ay')->update(['status' => 0 ]);
     }
+
+    public function ay_active(){
+        return $this->db->table('ay')
+        ->where('status', 1)
+        ->get()->getRowArray();
+    }
 }
