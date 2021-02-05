@@ -28,6 +28,7 @@
                             <th>Code Prodi</th>
                             <th>Program Study</th>
                             <th class="text-center">Degree</th>
+                            <th>Chief Prodi</th>
                             <th width="100px">Action</th>
                         </tr>
                     </thead>
@@ -39,7 +40,8 @@
                                 <td><?= $r['faculty'] ?></td>
                                 <td><?= $r['code_prodi'] ?></td>
                                 <td><?= $r['prodi'] ?></td>
-                                <td class="text-center"><?= $r['degree'] ?></td>
+                                <td class="text-center"><?= $r['chief_prodi'] ?></td>
+                                <td><?= $r['degree'] ?></td>
                                 <td class="text-center">
                                     <a href="<?= base_url('prodi/edit/' . $r['id_prodi']) ?>" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                                     <button class="btn btn-danger btn-sm" data-target="#delete-prodi-<?= $r['id_prodi'] ?>" data-toggle="modal"><i class="far fa-trash-alt"></i></button>

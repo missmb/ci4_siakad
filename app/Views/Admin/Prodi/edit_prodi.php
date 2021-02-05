@@ -54,6 +54,15 @@
                            <option value="S3">Doctoral Degree</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Chief of Program Study</label>
+                        <select class="form-control" name="chief_prodi">
+                            <option value="<?= $f['lecture_name'] ?>"><?= $f['lecture_name'] ?></option>
+                        <?php $i = 1; foreach ($lecture as $key => $v) { ?>
+                           <option value="<?= $v['lecture_name'] ?>"><?= $v['lecture_name'] ?></option>
+                        <?php } ?>
+                        </select>
+                    </div>
                     <div class="modal-footer justify-content-between">
                         <a href="<?= base_url('prodi'); ?>" class="btn btn-danger">Cancel</a>
                         <button type="submit" class="btn btn-success">Save</button>

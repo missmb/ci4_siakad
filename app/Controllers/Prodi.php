@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\FacultyModel;
+use App\Models\LectureModel;
 use App\Models\ProdiModel;
 
 class Prodi extends BaseController
@@ -8,6 +9,7 @@ class Prodi extends BaseController
 	public function __construct(){
 		helper('form');
 		$this->FacultyModel = new FacultyModel();
+		$this->LectureModel = new LectureModel();
 		$this->ProdiModel = new ProdiModel();
 	}
 
@@ -25,6 +27,7 @@ class Prodi extends BaseController
 		$data = [
 			'title' => 'Add Program Study',
 			'faculty' => $this->FacultyModel->data(),
+			'lecture' => $this->LectureModel->data(),
 			'content' => 'Admin/Prodi/add_prodi'
 		];
 		return view('layout/wrapper', $data);
@@ -68,6 +71,7 @@ class Prodi extends BaseController
 				'code_prodi' => $this->request->getPost('code_prodi'),
 				'prodi' => $this->request->getPost('prodi'),
 				'degree' => $this->request->getPost('degree'),
+				'chief_prodi' => $this->request->getPost('chief_prodi'),
 			];
 			$this->ProdiModel->add($data);
 			session()->setFlashdata('success', 'Success Add Data');
@@ -82,6 +86,7 @@ class Prodi extends BaseController
 		$data = [
 			'title' => 'Edit Program Study',
 			'faculty' => $this->FacultyModel->data(),
+			'lecture' => $this->LectureModel->data(),
 			'prodi' => $this->ProdiModel->detail($id),
 			'content' => 'Admin/Prodi/edit_prodi'
 		];
@@ -100,10 +105,9 @@ class Prodi extends BaseController
 			],
 			'code_prodi' => [
 				'label' => 'Code Program Study',
-				'rules' => 'required|is_unique[prodi.code_prodi]',
+				'rules' => 'required',
 				'errors' => [
-					'required' => '{field} must fill!',
-					'is_unique' => '{field} is exist'
+					'required' => '{field} must fill!'
 				]
 			],
 			'degree' => [
@@ -120,6 +124,7 @@ class Prodi extends BaseController
 				'code_prodi' => $this->request->getPost('code_prodi'),
 				'prodi' => $this->request->getPost('prodi'),
 				'degree' => $this->request->getPost('degree'),
+				'chief_prodi' => $this->request->getPost('chief_prodi'),
 			];
 			$this->ProdiModel->edit($data);
 			session()->setFlashdata('success', 'Success Add Data');
