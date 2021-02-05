@@ -53,7 +53,6 @@ class Auth extends BaseController
 			if ($role == 1) {
 				$check = $this->AuthModel->login($email, $password);
 				if ($check) {
-					session()->set('log', true);
 					session()->set('email', $check['email']);
 					session()->set('username', $check['username']);
 					session()->set('cover', $check['cover']);
@@ -65,9 +64,31 @@ class Auth extends BaseController
 					return redirect()->to(base_url('auth/index'));
 				}
 			} else if ($role == 2) {
-				echo 'Dosen';
+				$check_lecture = $this->AuthModel->login_lecture($email, $password);
+				if ($check_lecture) {
+					session()->set('email', $check_lecture['nidn']);
+					session()->set('username', $check_lecture['username']);
+					session()->set('cover', $check_lecture['cover']);
+					session()->set('role', $role);
+					
+					return redirect()->to(base_url('lecture'));
+				} else {
+					session()->setFlashdata('wrong', 'Login Filed!, error Email or Password');
+					return redirect()->to(base_url('auth/index'));
+				}
 			} else if ($role == 3) {
-				echo 'Mahasiswa';
+				$check_student = $this->AuthModel->login_student($email, $password);
+				if ($check_student) {
+					session()->set('email', $check_student['nim']);
+					session()->set('username', $check_student['username']);
+					session()->set('cover', $check_student['cover']);
+					session()->set('role', $role);
+					
+					return redirect()->to(base_url('sdn'));
+				} else {
+					session()->setFlashdata('wrong', 'Login Filed!, error Email or Password');
+					return redirect()->to(base_url('auth/index'));
+				}
 			}
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());

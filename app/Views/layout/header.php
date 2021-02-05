@@ -49,8 +49,37 @@
                             <a href="#" class="nav-link">Contact</a>
                         </li>
                     </ul>
-                <?php } else { ?>
+                <?php } else if (session()->get('role') == 2) { ?>
                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="<?= base_url('ltr'); ?>" class="nav-link">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 1</a></li>
+                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <?php } else if (session()->get('role') == 3) { ?>
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sdn'); ?>" class="nav-link">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 1</a></li>
+                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 2</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
                     </ul>
                 <?php } ?>
 
@@ -62,12 +91,24 @@
                         <?php } else { ?>
                             <li class="dropdown user-menu nav-item">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?= base_url('img/user/' . session()->get('cover')); ?>" class="brand-image img-circle elevation-3">
+                                    <?php if (session()->get('role') == 1) { ?>
+                                        <img src="<?= base_url('img/user/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                    <?php } else if (session()->get('role') == 2) { ?>
+                                        <img src="<?= base_url('img/lecture/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                    <?php } else if (session()->get('role') == 3) { ?>
+                                        <img src="<?= base_url('img/student/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                    <?php } ?>
                                     <span><?= session()->get('username') ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
-                                        <img src="<?= base_url('img/user/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                        <?php if (session()->get('role') == 1) { ?>
+                                            <img src="<?= base_url('img/user/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                        <?php } else if (session()->get('role') == 2) { ?>
+                                            <img src="<?= base_url('img/lecture/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                        <?php } else if (session()->get('role') == 3) { ?>
+                                            <img src="<?= base_url('img/student/' . session()->get('cover')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                                        <?php } ?>
                                         <p>
                                             <?= session()->get('username') ?> - <?php if (session()->get('role') == 1) {
                                                                                     echo 'Admin';

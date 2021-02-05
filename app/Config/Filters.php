@@ -12,24 +12,41 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-		'authfilter' => \App\Filters\AuthFilter::class
+		'filteradmin' => \App\Filters\FilterAdmin::class,
+		'filterlecture' => \App\Filters\FilterLecture::class,
+		'filterstudent' => \App\Filters\FilterStudent::class,
 	];
 
 	// Always applied before every request
 	public $globals = [
 		'before' => [
-			'authfilter' => [
+			'filteradmin' => [
 				'except' => [
 					'auth', 'auth/*',
 					'home', 'home/*',
 					'/'
 				]
-			]
+				],
+				'filterlecture' => [
+					'except' => [
+						'auth', 'auth/*',
+						'home', 'home/*',
+						'/'
+					]
+					],
+			'filterstudent' => [
+				'except' => [
+					'auth', 'auth/*',
+					'home', 'home/*',
+					'/'
+				]
+				],
+			
 			//'honeypot'
 			// 'csrf',
 		],
 		'after'  => [
-			'authfilter' => [
+			'filteradmin' => [
 				'except' => [
 					'home', 'home/*',
 					'admin', 'admin/*',
@@ -47,6 +64,21 @@ class Filters extends BaseConfig
 					'/'
 				]
 			],
+			'filterlecture' => [
+				'except' => [
+					'ltr', 'ltr/*',
+					'home', 'home/*',
+					'/'
+				]
+			],
+			'filterstudent' => [
+				'except' => [
+					'sdn', 'sdn/*',
+					'home', 'home/*',
+					'/'
+				]
+			],
+			
 			'toolbar',
 			//'honeypot'
 		],
