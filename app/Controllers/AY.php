@@ -49,4 +49,26 @@ class AY extends BaseController
 		return redirect()->to(base_url('ay'));
 	}
 
+	//------------------------------ Setting Academic Year ------------------------------
+
+	public function setting()
+	{
+		$data = [
+			'title' => 'Setting Academic Year',
+			'ay' => $this->AYModel->data(),
+			'content' => 'Admin/ay_setting'
+		];
+		return view('layout/wrapper', $data);
+	}
+
+	public function setStatus($id){
+		$this->AYModel->resetStatus();
+		$data = [
+			'id_ay' => $id,
+			'status' => 1
+		];
+		$this->AYModel->edit($data);
+		session()->setFlashdata('success', 'Success Change Active Data');
+		return redirect()->to(base_url('ay/setting'));
+	}
 }

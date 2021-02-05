@@ -24,4 +24,8 @@ class AYModel extends Model{
         ->where('id_ay', $id['id_ay'])
         ->delete($id);
     }
+
+    public function resetStatus(){
+        $this->db->table('ay')->update(['status' => 0 ]);
+    }
 }
