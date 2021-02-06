@@ -49,4 +49,16 @@ class Css extends BaseController
 		session()->setFlashdata('success', 'Success Delete Data');
 		return redirect()->to(base_url('css'));
 	}
+
+	public function print(){
+		$student = $this->CssModel->DataStudent();
+		$ay = $this->AYModel->ay_active();
+		$data = [
+			'title' => 'Print',
+			'active' => $this->AYModel->ay_active(),
+			'student' => $this->CssModel->DataStudent(),
+			'courses' => $this->CssModel->DataCss($student['id_student'], $ay['id_ay']),
+		];
+		return view('Student/Css/print_css', $data);
+	}
 }
