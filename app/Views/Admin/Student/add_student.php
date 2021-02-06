@@ -52,7 +52,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="">Cover</label>
-                                <input class="form-control" type="file" id="preview_cover" name="cover">
+                                <input class="form-control" type="file" id="preview_cover" name="cover_sdn">
                             </div>
                         </div>
                     </div>

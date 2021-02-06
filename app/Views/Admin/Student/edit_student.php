@@ -46,13 +46,13 @@
                     <div class="row">
                         <div class="col-sm-6 text-center">
                             <div class="form-group">
-                                <img src="<?= base_url('img/student/' . $student['cover'] ) ?>" id="cover_load" width="130px" height="130px">
+                                <img src="<?= base_url('img/student/' . $student['cover_sdn'] ) ?>" id="cover_load" width="130px" height="130px">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="">Cover</label>
-                                <input class="form-control" type="file" id="preview_cover" name="cover">
+                                <input class="form-control" type="file" id="preview_cover" name="cover_sdn">
                             </div>
                         </div>
                     </div>

@@ -65,9 +65,9 @@ class student extends BaseController
 					'required' => '{field} must fill!'
 				]
 			],
-			'cover' => [
+			'cover_sdn' => [
 				'label' => 'cover',
-				'rules' => 'uploaded[cover]|max_size[cover,1024]|mime_in[cover,image/png,image/jpg,image/jpeg,image/gif,image/ico]',
+				'rules' => 'uploaded[cover_sdn]|max_size[cover,1024]|mime_in[cover,image/png,image/jpg,image/jpeg,image/gif,image/ico]',
 				'errors' => [
 					'uploaded' => '{field} must fill!',
 					'max_size' => '{field} Max size 1024 KB',
@@ -82,7 +82,7 @@ class student extends BaseController
 				'student_name' => $this->request->getPost('student_name'),
 				'id_prodi' => $this->request->getPost('id_prodi'),
 				'password' => $this->request->getPost('password'),
-				'cover' => $file_name,
+				'cover_sdn' => $file_name,
 			];
 			$cover->move('img/student', $file_name);
 			$this->StudentModel->add($data);
@@ -135,16 +135,16 @@ class student extends BaseController
 					'required' => '{field} must fill!'
 				]
 			],
-			'cover' => [
+			'cover_sdn' => [
 				'label' => 'cover',
-				'rules' => 'max_size[cover,1024]|mime_in[cover,image/png,image/jpg,image/jpeg,image/gif,image/ico]',
+				'rules' => 'max_size[cover_sdn,1024]|mime_in[cover_sdn,image/png,image/jpg,image/jpeg,image/gif,image/ico]',
 				'errors' => [
 					'max_size' => '{field} Max size 1024 KB',
 					'mime_in' => 'Format {field} must PNG, JPG, JPEG, GIF, ICO'
 				]
 			],
 		])) {
-			$cover = $this->request->getFile('cover');
+			$cover = $this->request->getFile('cover_sdn');
 
 			if ($cover->getError() == 4) {
 				$data = [
@@ -157,8 +157,8 @@ class student extends BaseController
 				$this->StudentModel->edit($data);
 			} else {
 				$student = $this->StudentModel->detail($id);
-				if ($student['cover'] != "") {
-					unlink('img/student/' . $student['cover']);
+				if ($student['cover_sdn'] != "") {
+					unlink('img/student/' . $student['cover_sdn']);
 				}
 				$file_name = $cover->getRandomName();
 				$data = [
@@ -167,7 +167,7 @@ class student extends BaseController
 					'student_name' => $this->request->getPost('student_name'),
 					'id_prodi' => $this->request->getPost('id_prodi'),
 					'password' => $this->request->getPost('password'),
-					'cover' => $file_name,
+					'cover_sdn' => $file_name,
 				];
 				$cover->move('img/student', $file_name);
 				$this->StudentModel->edit($data);
@@ -184,8 +184,8 @@ class student extends BaseController
 	{
 		$student = $this->StudentModel->detail($id);
 
-		if ($student['cover'] != "") {
-			unlink('img/student/' . $student['cover']);
+		if ($student['cover_sdn'] != "") {
+			unlink('img/student/' . $student['cover_sdn']);
 		}
 		$data = [
 			'id_student' => $id

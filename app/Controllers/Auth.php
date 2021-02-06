@@ -80,8 +80,8 @@ class Auth extends BaseController
 				$check_student = $this->AuthModel->login_student($email, $password);
 				if ($check_student) {
 					session()->set('email', $check_student['nim']);
-					session()->set('username', $check_student['username']);
-					session()->set('cover', $check_student['cover']);
+					session()->set('username', $check_student['student_name']);
+					session()->set('cover', $check_student['cover_sdn']);
 					session()->set('role', $role);
 					
 					return redirect()->to(base_url('sdn'));
@@ -97,7 +97,6 @@ class Auth extends BaseController
 	}
 
 	public function logout() {
-		session()->remove('log');
 		session()->remove('email');
 		session()->remove('cover');
 		session()->remove('role');

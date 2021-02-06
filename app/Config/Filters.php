@@ -75,6 +75,8 @@ class Filters extends BaseConfig
 				'except' => [
 					'sdn', 'sdn/*',
 					'home', 'home/*',
+					'css', 'css/*',
+					'src', 'src/*',
 					'/'
 				]
 			],

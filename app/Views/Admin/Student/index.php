@@ -40,7 +40,7 @@
                                 <td><?= $v['student_name'] ?></td>
                                 <td><?= $v['prodi'] ?></td>
                                 <td><?= $v['password'] ?></td>
-                                <td class="text-center" width="50px"><img alt="Avatar" class="img-circle" src="img/student/<?= $v['cover'] ?>" width="50px" height="50px"></td>
+                                <td class="text-center" width="50px"><img alt="Avatar" class="img-circle" src="img/student/<?= $v['cover_sdn'] ?>" width="50px" height="50px"></td>
                                 <td class="text-center">
                                     <a href="<?= base_url('student/edit/' . $v['id_student'] ) ?>" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                                     <button class="btn btn-danger btn-sm" data-target="#delete-student-<?= $v['id_student'] ?>" data-toggle="modal"><i class="far fa-trash-alt"></i></button>

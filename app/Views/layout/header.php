@@ -57,24 +57,24 @@
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 1</a></li>
-                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 2</a></li>
+                                <li><a href="<?= base_url('css'); ?>" class="dropdown-item">Course Selection Sheet</a></li>
+                                <li><a href="<?= base_url('src'); ?>" class="dropdown-item">Student Record Card</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Contact</a>
                         </li>
                     </ul>
-                    <?php } else if (session()->get('role') == 3) { ?>
-                        <ul class="navbar-nav">
+                <?php } else if (session()->get('role') == 3) { ?>
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="<?= base_url('sdn'); ?>" class="nav-link">Dashboard</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Academic</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 1</a></li>
-                                <li><a href="<?= base_url('menu'); ?>" class="dropdown-item">Menu 2</a></li>
+                                <li><a href="<?= base_url('css'); ?>" class="dropdown-item">Course Selection Sheet</a></li>
+                                <li><a href="<?= base_url('src'); ?>" class="dropdown-item">Student Record Card</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -113,26 +113,25 @@
                                             <?= session()->get('username') ?> - <?php if (session()->get('role') == 1) {
                                                                                     echo 'Admin';
                                                                                 } else if (session()->get('role') == 2) {
-                                                                                    echo 'Dosen';
+                                                                                    echo session()->get('email');
                                                                                 } else if (session()->get('role') == 3) {
-                                                                                    echo 'Mahasiswa';
+                                                                                    echo session()->get('email');
                                                                                 } ?>
                                             <small>Member since. <?= date('Y-m-d') ?></small>
                                         </p>
                                     </li>
 
-                                    <li class="user-footer">
-                                        <div>
-                                            <a href="" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div>
-                                            <a href="<?= base_url('auth/logout') ?>" class="btn btn-default btn-flat">Logout</a>
-                                        </div>
-                                    </li>
-                                </ul>
+                                    <div class="modal-footer justify-content-between">
+
+                                        <a href="" class="btn btn-default bg-primary">Profile</a>
+
+                                        <a href="<?= base_url('auth/logout') ?>" class="btn btn-default bg-danger">Logout</a>
+                                    </div>
                             </li>
-                        <?php } ?>
                     </ul>
+                    </li>
+                <?php } ?>
+                </ul>
                 </div>
             </div>
         </nav>

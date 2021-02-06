@@ -56,7 +56,6 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- <p>One fine body&hellip;</p> -->
                 <?= form_open('building/add'); ?>
                 <div class="form-group">
                     <label for="">building</label>
