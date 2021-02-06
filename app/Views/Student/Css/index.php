@@ -83,8 +83,9 @@
                         <a href="<?= base_url('prodi'); ?>" class="btn btn-primary" data-target="#add-courses" data-toggle="modal"><i class="fa fa-plus"></i> Add Course</a>
                         <button class="btn btn-danger"><i class="fa fa-print"></i> Print</button>
                     </div>
-                    <?php $i = 1;
-                    foreach ($courses as $key => $v) { ?>
+                    <?php $i = 1; $sks = 0;
+                    foreach ($courses as $key => $v) { 
+                        $sks = $sks + $v['sks'] ?>
                         <tr class="text-center">
                             <td><?= $i++ ?>
                             </td>
@@ -102,6 +103,11 @@
                         </tr>
                     <?php } ?>
                 </table>
+                <div class="row bg-gray">
+                <div class="col-sm-2"></div>
+                    <div class="col-sm-3"><h5><b>Total SKS : </b></h5></div>
+                    <div class="col-sm-7"><h5><?= $sks ?></h5></div>
+                </div>
             </div>
         </div>
     </div>

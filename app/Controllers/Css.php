@@ -15,12 +15,13 @@ class Css extends BaseController
 	public function index()
 	{
 		$student = $this->CssModel->DataStudent();
+		$ay = $this->AYModel->ay_active();
 		$data = [
 			'title' => 'Course Study Sheet',
 			'active' => $this->AYModel->ay_active(),
 			'student' => $this->CssModel->DataStudent(),
-			'offering' => $this->CssModel->CoursesOffering(),
-			'courses' => $this->CssModel->DataCss($student),
+			'offering' => $this->CssModel->CoursesOffering($ay['id_ay']),
+			'courses' => $this->CssModel->DataCss($student['id_student'], $ay['id_ay']),
 			'content' => 'Student/Css/index'
 		];
 		return view('layout/wrapper', $data);
