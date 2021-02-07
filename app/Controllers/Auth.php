@@ -57,7 +57,7 @@ class Auth extends BaseController
 					session()->set('username', $check['username']);
 					session()->set('cover', $check['cover']);
 					session()->set('role', $role);
-					
+
 					return redirect()->to(base_url('admin'));
 				} else {
 					session()->setFlashdata('wrong', 'Login Filed!, error Email or Password');
@@ -67,10 +67,10 @@ class Auth extends BaseController
 				$check_lecture = $this->AuthModel->login_lecture($email, $password);
 				if ($check_lecture) {
 					session()->set('email', $check_lecture['nidn']);
-					session()->set('username', $check_lecture['username']);
+					session()->set('username', $check_lecture['lecture_name']);
 					session()->set('cover', $check_lecture['cover']);
 					session()->set('role', $role);
-					
+
 					return redirect()->to(base_url('lecture'));
 				} else {
 					session()->setFlashdata('wrong', 'Login Filed!, error Email or Password');
@@ -83,7 +83,7 @@ class Auth extends BaseController
 					session()->set('username', $check_student['student_name']);
 					session()->set('cover', $check_student['cover_sdn']);
 					session()->set('role', $role);
-					
+
 					return redirect()->to(base_url('sdn'));
 				} else {
 					session()->setFlashdata('wrong', 'Login Filed!, error Email or Password');
@@ -96,7 +96,8 @@ class Auth extends BaseController
 		}
 	}
 
-	public function logout() {
+	public function logout()
+	{
 		session()->remove('email');
 		session()->remove('cover');
 		session()->remove('role');
