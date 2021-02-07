@@ -13,7 +13,7 @@ class LtrModel extends Model
             ->get()->getRowArray();
     }
 
-    public function LectureSchedule($id_lecture)
+    public function LectureSchedule($id_lecture,$id_ay)
     {
         return $this->db->table('college_schedule')
             ->join('courses', 'courses.id_courses = college_schedule.id_courses', 'left')
@@ -22,6 +22,7 @@ class LtrModel extends Model
             ->join('room', 'room.id_room = college_schedule.id_room', 'left')
             ->join('classes', 'classes.id_class = college_schedule.id_class', 'left')
             ->where('lecture.id_lecture', $id_lecture)
+            ->where('college_schedule.id_ay', $id_ay)
             ->get()->getResultArray();
     }
 

@@ -1,12 +1,14 @@
 <?php namespace App\Controllers;
 
 use App\Models\LtrModel;
+use App\Models\AYModel;
 
 class Ltr extends BaseController
 {
 	public function __construct(){
 		helper('form');
 		$this->LtrModel = new LtrModel();
+		$this->AYModel = new AYModel();
 	}
 
 	public function index()
@@ -20,20 +22,25 @@ class Ltr extends BaseController
 
 	public function schedule()
 	{
+		// var_dump($this->AYModel->ay_active());die();
+		$ay = $this->AYModel->ay_active();
 		$lecture = $this->LtrModel->data();
 		$data = [
 			'title' => 'Lesson Schedule',
-			'schedule' => $this->LtrModel->LectureSchedule($lecture['id_lecture']),
+			'schedule' => $this->LtrModel->LectureSchedule($lecture['id_lecture'], $ay['id_ay']),
+			'ay' => $ay,
 			'content' => 'Lecture/schedule'
 		];
 		return view('layout/wrapper', $data);
 	}
 
 	public function Absence(){
+		$ay = $this->AYModel->ay_active();
 		$lecture = $this->LtrModel->data();
 		$data = [
 			'title' => 'Absence Class',
-			'absence' => $this->LtrModel->LectureSchedule($lecture['id_lecture']),
+			'ay' => $ay,
+			'absence' => $this->LtrModel->LectureSchedule($lecture['id_lecture'], $ay['id_ay']),
 			'content' => 'Lecture/Absence/absence'
 		];
 		return view('layout/wrapper', $data);	
