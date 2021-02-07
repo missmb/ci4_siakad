@@ -90,4 +90,14 @@ class Ltr extends BaseController
 		session()->setFlashdata('success', 'Success Update Absence');
 			return redirect()->to(base_url('ltr/absenceclass/' . $id_schedule));
 	}
+
+	public function PrintAbsence($id_schedule){
+		$data = [
+			'title' => 'Absence Class',
+			'schedule' => $this->LtrModel->DetailSchedule($id_schedule),
+			'student' => $this->LtrModel->DataStudent($id_schedule),
+			'content' => 'Lecture/Absence/print_absence'
+		];
+		return view('layout/wrapper', $data);	
+	}
 }

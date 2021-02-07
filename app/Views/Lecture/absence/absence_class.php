@@ -45,7 +45,7 @@
 
     <div class="modal-footer justify-content-between">
         <a href="<?= base_url('ltr/editabsence/'. $schedule['id_schedule']); ?>" class="btn btn-primary"><i class="fa fa-pen"></i> Edit</a>
-        <a href="<?= base_url('ltr/printabsence'); ?>" target="_blank" class="btn btn-danger"><i class="fa fa-print"></i> Print</a>
+        <a href="<?= base_url('ltr/printabsence/' . $schedule['id_schedule']); ?>" target="_blank" class="btn btn-danger"><i class="fa fa-print"></i> Print</a>
     </div>
         <?php
         if (session()->getFlashdata('success')) {
