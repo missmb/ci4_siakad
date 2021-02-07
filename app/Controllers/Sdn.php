@@ -16,6 +16,8 @@ class Sdn extends BaseController
 	{
 		$data = [
 			'title' => 'Student',
+			'student' => $this->CssModel->DataStudent(),
+			'ay' => $this->AYModel->ay_active(),
 			'content' => 'Student/student'
 		];
 		return view('layout/wrapper', $data);
