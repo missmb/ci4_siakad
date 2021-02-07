@@ -91,7 +91,8 @@
                             <td><?= $i++ ?>
                             </td>
                             <td><?= $v['code_courses'] ?></td>
-                            <td><?= $v['courses'] ?></td>
+                            <td><?= $v['courses'] ?>
+                            </td>
                             <td><?= $v['sks'] ?></td>
                             <td><?= $v['smt'] ?></td>
                             <td><?= $v['class_name'] ?>-<?= $v['class_year'] ?></td>
@@ -152,7 +153,7 @@
                         <tr class="text-center text-sm">
                             <td><?= $i++ ?></td>
                             <td><?= $v['code_courses'] ?></td>
-                            <td><?= $v['courses'] ?></td>
+                            <td><?= $v['courses'] ?><br>(<?= $v['code_prodi'] ?>)</td>
                             <td><?= $v['sks'] ?></td>
                             <td><?= $v['smt'] ?></td>
                             <td><?= $v['class_name'] ?>-<?= $v['class_year'] ?></td>

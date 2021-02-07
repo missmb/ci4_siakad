@@ -13,13 +13,15 @@ class CssModel extends Model{
         ->get()->getRowArray();
     }
 
-    public function CoursesOffering($id_ay){
+    public function CoursesOffering($id_ay, $id_prodi){
         return $this->db->table('college_schedule')
         ->join('courses', 'courses.id_courses = college_schedule.id_courses', 'left')
         ->join('classes', 'classes.id_class = college_schedule.id_class', 'left')
         ->join('room', 'room.id_room = college_schedule.id_room', 'left')
         ->join('lecture', 'lecture.id_lecture = college_schedule.id_lecture', 'left')
+        ->join('prodi', 'prodi.id_prodi = college_schedule.id_prodi', 'left')
         ->where('id_ay', $id_ay)
+        ->where('college_schedule.id_prodi', $id_prodi)
         ->get()->getResultArray();
     }
 

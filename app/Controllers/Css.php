@@ -20,7 +20,7 @@ class Css extends BaseController
 			'title' => 'Course Study Sheet',
 			'active' => $this->AYModel->ay_active(),
 			'student' => $this->CssModel->DataStudent(),
-			'offering' => $this->CssModel->CoursesOffering($ay['id_ay']),
+			'offering' => $this->CssModel->CoursesOffering($ay['id_ay'],$student['id_prodi']),
 			'courses' => $this->CssModel->DataCss($student['id_student'], $ay['id_ay']),
 			'content' => 'Student/Css/index'
 		];
