@@ -58,7 +58,7 @@
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Academic</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="<?= base_url('ltr/schedule'); ?>" class="dropdown-item">Lesson Schedule</a></li>
-                                <li><a href="<?= base_url('src'); ?>" class="dropdown-item">Student Record Card</a></li>
+                                <li><a href="<?= base_url('ltr/absence'); ?>" class="dropdown-item">Absence Student</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
