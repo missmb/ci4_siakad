@@ -76,7 +76,6 @@ class Filters extends BaseConfig
 					'sdn', 'sdn/*',
 					'home', 'home/*',
 					'css', 'css/*',
-					'src', 'src/*',
 					'/'
 				]
 			],

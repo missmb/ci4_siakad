@@ -75,7 +75,7 @@
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Academic</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="<?= base_url('css'); ?>" class="dropdown-item">Course Selection Sheet</a></li>
-                                <li><a href="<?= base_url('css'); ?>" class="dropdown-item">Course Selection Sheet</a></li>
+                                <li><a href="<?= base_url('sdn/crs'); ?>" class="dropdown-item">Course Result Sheet</a></li>
                                 <li><a href="<?= base_url('sdn/absence'); ?>" class="dropdown-item">Absence</a></li>
                             </ul>
                         </li>

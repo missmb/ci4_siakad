@@ -38,4 +38,21 @@ class Sdn extends BaseController
 		return view('layout/wrapper', $data);
 	}
 
+	//------------------------------ Src ------------------------------
+
+	public function crs()
+	{
+		$student = $this->CssModel->DataStudent();
+		$ay = $this->AYModel->ay_active();
+		$data = [
+			'title' => 'Course Result Sheet',
+			'active' => $this->AYModel->ay_active(),
+			'student' => $this->CssModel->DataStudent(),
+			'offering' => $this->CssModel->CoursesOffering($ay['id_ay'],$student['id_prodi']),
+			'courses' => $this->CssModel->DataCss($student['id_student'], $ay['id_ay']),
+			'content' => 'Student/crs'
+		];
+		return view('layout/wrapper', $data);
+	}
+
 }
