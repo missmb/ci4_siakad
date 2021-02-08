@@ -7,7 +7,6 @@
         echo session()->getFlashdata('success');
         echo '</div>';
     } ?>
-    <a href="<?= base_url('ltr/updatescore/' . $absence['id_schedule']); ?>" target="_blank" class="btn btn-danger"><i class="fa fa-print"></i> Print Score</a>
     <div class="row">
         <table class="table table-striped table-bordered">
             <tr>

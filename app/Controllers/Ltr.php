@@ -18,6 +18,8 @@ class Ltr extends BaseController
 	{
 		$data = [
 			'title' => 'Lecture',
+			'lecture' => $this->LtrModel->data(),
+			'ay' => $this->AYModel->ay_active(),
 			'content' => 'Lecture/lecture'
 		];
 		return view('layout/wrapper', $data);
