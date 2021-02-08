@@ -59,6 +59,7 @@
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="<?= base_url('ltr/schedule'); ?>" class="dropdown-item">Lesson Schedule</a></li>
                                 <li><a href="<?= base_url('ltr/absence'); ?>" class="dropdown-item">Absence Student</a></li>
+                                <li><a href="<?= base_url('ltr/studentscore'); ?>" class="dropdown-item">Student Score</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

@@ -32,8 +32,15 @@
                 <td>18</td>
             </tr>
             <?php $i = 1;
-            foreach ($student as $key => $v) { 
-                echo form_hidden($v['id_css'] . 'id_css', $v['id_css'])?>
+            foreach ($student as $key => $v) {
+                // $absent = ($v['a1'] + $v['a2'] + $v['a3'] + $v['a4'] +
+                //     $v['a5'] + $v['a6'] + $v['a7'] + $v['a8'] + $v['a9'] +
+                //     $v['a10'] + $v['a11'] + $v['a12'] + $v['a13'] + $v['a14'] +
+                //     $v['a15'] + $v['a16'] + $v['a17'] + $v['a18']) / 36 * 100;
+                // echo number_format($absent, 0) . '%';
+                // echo form_hidden($v['id_css'] . 'absence_score',number_format($absent, 0));
+
+                echo form_hidden($v['id_css'] . 'id_css', $v['id_css']); ?>
                 <tr class="text-center">
                     <td><?= $i++ ?>
                     </td>
